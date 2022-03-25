@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<playground version='6.0' target-platform='ios' buildActiveScheme='true' importAppTypes='true'>
+    <pages>
+        <page name='SingleResponsibility'/>
+        <page name='OpenClosedPrinciple'/>
+        <page name='LiskovSubstitutionPrinciple'/>
+        <page name='InterfaceSegregationPrinciple'/>
+        <page name='DependencyInversionPrinciple'/>
+    </pages>
+</playground>

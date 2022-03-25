@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<playground version='6.0' target-platform='ios' buildActiveScheme='true' importAppTypes='true'>
+    <pages>
+        <page name='DispatchWorkItem'/>
+        <page name='DispatchBarrier'/>
+        <page name='Types'/>
+        <page name='ManualTest'/>
+        <page name='Learning'/>
+        <page name='DispatchGroup'/>
+        <page name='ConcurrencyLooping'/>
+        <page name='DispatchSemaphore'/>
+        <page name='NSLock'/>
+        <page name='DelayingTaskExecution'/>
+        <page name='Interview'/>
+        <page name='GCDTest'/>
+    </pages>
+</playground>
