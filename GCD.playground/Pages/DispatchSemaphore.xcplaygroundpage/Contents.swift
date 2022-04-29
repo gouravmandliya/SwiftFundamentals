@@ -40,8 +40,6 @@ func performAsyncTaskIntoConcurrentQueue() {
 //a semaphore is basically a counter that can be increased (v()) or decreased (p()). If the counter is 0, then p() halts the thread until the counter is no longer 0. This is a way to synchronize threads, but I would prefer using mutexes or condition variables (controversial, but that's my opinion). When the initial counter is 1, then the semaphore is called a binary semaphore and it is similar to a lock.
 //A big difference between locks and semaphores is that the thread owns the lock, so no other thread should try to unlock, while this is not the case for semaphores.
 
-
-
 //For example, you may want to download a lot of images in parallel but since you know that they are heavy images, you want to limit to two downloads only at a single time so you use a semaphore. You also want to be notified when all the downloads (say there are 50 of them) are done, so you use DispatchGroup. Thus, it is not a matter of choosing between the two. You may use one or both in the same implementation depending on your goals. This type of example was provided in the Concurrency tutorial on Ray Wenderlich's site:
 
 
@@ -91,3 +89,48 @@ func semaphoreExample () {
 }
 
 semaphoreExample()
+
+struct Example: Codable {
+    let userId: Int
+    let id: Int
+    let title: String
+    let completed: Bool
+}
+
+enum ResponseResult {
+    case success(Decodable)
+    case error(Error)
+}
+
+func getDataFromServer(completion:@escaping(ResponseResult)->Void) {
+    let url = URL(string: "https://jsonplaceholder.typicode.com/todos/1")!
+    var request = URLRequest(url: url)
+    request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+    request.httpMethod = "GET"
+    
+    let task = URLSession.shared.dataTask(with: url) { data, response, error in
+        if let data = data {
+            if let books = try? JSONDecoder().decode([Example].self, from: data) {
+                print(books)
+                completion(.success(books))
+            } else {
+                print("Invalid Response")
+            }
+        } else if let error = error {
+            print("HTTP Request Failed \(error)")
+            completion(.error(error))
+        }
+    }
+    task.resume()
+}
+getDataFromServer { result in
+    switch result {
+    case .success(let response):
+        let res = response as! Example
+        print(res.id)
+    case .error(let err):
+      print(err)
+  }
+}
+
+

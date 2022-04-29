@@ -18,3 +18,12 @@ import UIKit
 
 //MARK:-URLSessionDownloadTask:
 //Use this task to download a file from a remote service to a temporary file location.
+
+
+URLSession.shared.
+
+let task = URLSession.shared.uploadTask(with: request, from: uploadData) { data, response, error in
+        // Evaluate error
+   
+    // process data
+}

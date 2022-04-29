@@ -43,6 +43,7 @@ struct PeopleViewModel {
     }
 }
 
+
 var viewModel = PeopleViewModel(people: [
     Person(name: "Antoine", age: 30),
     Person(name: "Jaap", age: 3),

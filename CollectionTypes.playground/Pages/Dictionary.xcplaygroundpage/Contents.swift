@@ -61,3 +61,4 @@ let airportCodes = [String](airports.keys)
 
 let airportNames = [String](airports.values)
 // airportNames is ["London Heathrow", "Toronto Pearson"]
+

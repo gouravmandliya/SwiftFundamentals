@@ -204,16 +204,20 @@ func say(_ text: String, completion: @escaping () -> Void) {
 
 
 
-let tere = DispatchQueue(label: "df")
+let serialQueue = DispatchQueue(label: "serialQueue",attributes: .concurrent)
 
-tere.async {
-    print("ter")
-    tere.sync {
-        print("ert")
+serialQueue.async {
+    print("first")
+    
+    for i in 0..<10 {
+        print("first block \(i)")
+        Thread.sleep(forTimeInterval: 0.5)
     }
 }
-tere.async {
-    print("er")
-}
 
-DispatchQueue.g
+serialQueue.sync {
+    
+    for i in 0..<10 {
+        print("seond block \(i)")
+    }
+}

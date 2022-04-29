@@ -8,12 +8,8 @@ func serve(customer customerProvider: @autoclosure () -> String) {
     //print("Now serving \(customerProvider())!")
 }
 
-
-
 var multiply : (_ num1:Int,_ num2:Int) -> Int = { number1, number2 in
-    
     return number1 + number2
-    
 }
 
 print(multiply(10,45))
@@ -45,13 +41,9 @@ var substract :(_ num1:Int,_ num2:Int) -> Int = {
     num1 + num2
 }
 
-
-
-
 func getSentence(name:String) -> String {
     return "Your name is \(name)"
 }
-
 
 print(getSentence(name: "Gourav Mandliya"))
 

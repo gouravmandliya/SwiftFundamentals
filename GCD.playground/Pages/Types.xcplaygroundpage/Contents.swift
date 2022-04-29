@@ -13,7 +13,7 @@ serialQueue.sync {
 }
 
 //MARK:- Concurrentqueues
-//Concurrent queues allow multiple tasks to run at the same time. The queue guarantees tasks start in the order you add them. Tasks can finish in any order and you have no knowledge of the time it will take for the next task to start, nor the number of tasks that are running at any given time.
+//It’s starting multiple tasks at the same time but not guarantee for the finish at same time. Its can finish any order.
 
 let concurrentQueues = DispatchQueue(label: "concurrent.queue", attributes: .concurrent)
 
@@ -106,10 +106,14 @@ DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(5)) {
 
 
 //MARK:-Synchronous vs. Asynchronous
+
+//Sync : The program waits until execution finishes before the method call returns.
+//Async : The method call returns immediately.
+
+
 //With GCD, you can dispatch a task either synchronously or asynchronously.
 //A synchronous function returns control to the caller after the task is completed.
 //An asynchronous function returns immediately, ordering the task to be done but not waiting for it. Thus, an asynchronous function does not block the current thread of execution from proceeding on to the next function.
-
 
 
 

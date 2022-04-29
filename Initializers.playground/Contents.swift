@@ -23,3 +23,6 @@ class  Bicycle :Vehicle{
 let obj = Bicycle()
 
 obj.numberOfWheels
+
+
+
